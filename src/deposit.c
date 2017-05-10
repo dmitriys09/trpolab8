@@ -1,18 +1,18 @@
 #include <stdio.h>
 
-int check(int *d, int *s)	
+int check(int day, int sum)	
 {
-	if(*d<0 || *d>365)
+	if(day<0 || day>365)
 	{
-		printf("ERROR");
+		printf("ERROR, WRONG NUMBER OF DAYS");
 		return -1;
 	}
 	
 	
 	
-	if (*s<10000)
+	if (sum<10000)
 	{
-		printf("ERROR");
+		printf("ERROR, DEPOSIT MUST BE MORE EQUAL 10 000");
 		return -1;
 	}
 	else
@@ -22,57 +22,60 @@ int check(int *d, int *s)
 	}
 }
 
-void tabl(int *d, int *s, int *i)
+int tabl(int day, int sum)
 {
-	if (*d<=30)
+	int income;
+	if (day<=30)
 	{
-		if (*s <100000)
+		if (sum <100000)
 		{
-			*i=(*s/100)*90;
+			income=(sum/100)*90;
 		}
 		else
 		{
-			*i=(*s/100)*90;
+			income=(sum/100)*90;
 		}	
 	}
 	
-	if (*d>=31 && *d<=120)
+	if (day>=31 && day<=120)
 	{
-		if (*s <100000)
+		if (sum <100000)
        	 	{
-            		*i=(*s/100)*102;
+            	income=(sum/100)*102;
         	}
         	else
         	{
-        	    *i=(*s/100)*103;
+        	    income=(sum/100)*103;
         	}
 
 	}
 	
-	if (*d>=121 && *d<=240)
+	if (day>=121 && day<=240)
 	{
-	        if (*s <100000)
+	        if (sum <100000)
 	        {
-	            *i=(*s/100)*106;
+	            income=(sum/100)*106;
 	        }
         	else
         	{
-        	    *i=(*s/100)*108;
+        	    income=(sum/100)*108;
         	}
      
     	}	
     
-    	if (*d>=241 && *d<=365)
+    	if (day>=241 && day<=365)
     	{
-        	if (*s <100000)
+        	if (sum <100000)
         	{
-        	    *i=(*s/100)*112;
+        	    income=(sum/100)*112;
         	}
         	else
         	{
-        	    *i=(*s/100)*115;
+        	    income=(sum/100)*115;
         	}
      
     	}
+    return income;
 }
+
 

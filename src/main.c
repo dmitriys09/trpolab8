@@ -2,7 +2,7 @@
 #include "deposit.h"
 int main()
 {
-	int day, sum, income;
+	int day, sum, flag;
 	
 	printf("input days: ");
 	scanf("%d",&day);
@@ -10,11 +10,14 @@ int main()
 	printf("\ninput sum: ");
 	scanf("%d",&sum);
 	
-	check(&day, &sum);
+	flag=check(day, sum);
+	if (flag==-1)
+	{
+		return 0;
+	}
 
-	tabl(&day, &sum, &income);
 	
-	printf("\nIncome: %d",income);
+	printf("\nIncome: %d",tabl(day, sum));
 
 	return 0;
 	
